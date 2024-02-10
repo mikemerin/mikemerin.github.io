@@ -29,62 +29,67 @@ const getPosts = async () => {
     fileNames.map(async (fileName) => {
       const basePath = isLocal ? process.env.PUBLIC_URL : 'https://raw.githubusercontent.com/mikemerin/mikemerin.github.io/main/public';
       const filePath = `${basePath}/assets/posts/${fileName}.md`;
-      const text = await fetch(filePath)
-        .then((res) => res.text());
-      const sections = text.split('---');
-      const rawHeaders = sections[1];
-      const body = sections.slice(2).join('---');
-      const eachHeader = rawHeaders
-        .replace(/\\r\\n/g, '\r\n')
-        .split('\n')
-        .filter(x => x)
-        .reduce((acc, rawHeader) => {
-          const [header, value] = rawHeader.split(/:\s(.*)/s) as [Domain.Enums.PostKey, string];
-          if (!value || value === ' ') {
-            return acc;
-          }
-          let output = value.trim();
+      try {
 
-          switch (header) {
-            case Domain.Enums.PostKey.title:
-            case Domain.Enums.PostKey.subtitle:
-              output = output.replace(/"/g, '');
-              break;
-            case Domain.Enums.PostKey.series:
-            case Domain.Enums.PostKey.tags:
-              output.split(', ').forEach((key) => {
-                // @ts-ignore this maps it correctly for the only shared ones using it: tags and series
-                const segmentHeader: Domain.Enums.BlogPageKey = Domain.blogPages[header]['text'].toLowerCase();
-                if (postOutput.segments[segmentHeader][key]) {
-                  postOutput.segments[segmentHeader][key].push(fileName);
-                } else {
-                  postOutput.segments[segmentHeader][key] = [fileName];
-                }
-              });
-              break;
-            case Domain.Enums.PostKey.projects:
-              value.split(', ').forEach((projectName) => {
-                if (postOutput.projectMap[projectName]) {
-                  postOutput.projectMap[projectName].push(fileName);
-                } else {
-                  postOutput.projectMap[projectName] = [fileName];
-                }
-              })
-              break;
-            default: break;
-          }
+        const text = await fetch(filePath)
+          .then((res) => res.text());
+        const sections = text.split('---');
+        const rawHeaders = sections[1];
+        const body = sections.slice(2).join('---');
+        const eachHeader = rawHeaders
+          .replace(/\\r\\n/g, '\r\n')
+          .split('\n')
+          .filter(x => x)
+          .reduce((acc, rawHeader) => {
+            const [header, value] = rawHeader.split(/:\s(.*)/s) as [Domain.Enums.PostKey, string];
+            if (!value || value === ' ') {
+              return acc;
+            }
+            let output = value.trim();
 
-          return { ...acc, [header]: output };
-        }, {
-          body,
-          words: calculateWords(body)
-        } as Domain.Post
-        );
-      postOutput.info[fileName] = { ...eachHeader, fileName };
-    })
+            switch (header) {
+              case Domain.Enums.PostKey.title:
+              case Domain.Enums.PostKey.subtitle:
+                output = output.replace(/"/g, '');
+                break;
+              case Domain.Enums.PostKey.series:
+              case Domain.Enums.PostKey.tags:
+                output.split(', ').forEach((key) => {
+                  // @ts-ignore this maps it correctly for the only shared ones using it: tags and series
+                  const segmentHeader: Domain.Enums.BlogPageKey = Domain.blogPages[header]['text'].toLowerCase();
+                  if (postOutput.segments[segmentHeader][key]) {
+                    postOutput.segments[segmentHeader][key].push(fileName);
+                  } else {
+                    postOutput.segments[segmentHeader][key] = [fileName];
+                  }
+                });
+                break;
+              case Domain.Enums.PostKey.projects:
+                value.split(', ').forEach((projectName) => {
+                  if (postOutput.projectMap[projectName]) {
+                    postOutput.projectMap[projectName].push(fileName);
+                  } else {
+                    postOutput.projectMap[projectName] = [fileName];
+                  }
+                })
+                break;
+              default: break;
+            }
+
+            return { ...acc, [header]: output };
+          }, {
+            body,
+            words: calculateWords(body)
+          } as Domain.Post
+          );
+        postOutput.info[fileName] = { ...eachHeader, fileName };
+      } catch (err) {
+        console.log('No file found for' + fileName, err);
+      }
+    }).filter(x => x)
   );
 
-  return postOutput;
+return postOutput;
 }
 
 const formatDate = (dateTime: string, short?: boolean) => {
