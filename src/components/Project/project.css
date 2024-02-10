@@ -1,0 +1,68 @@
+table {
+    border-spacing: 1px;
+    margin: auto;
+}
+
+tr {
+    background: #fff;
+    border-top: 1px solid #c6cbd1;
+}
+
+th,
+td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px;
+}
+
+table tr:nth-child(2n) {
+    background: #f6f8fa;
+}
+
+pre {
+    border: 1px dashed rgba(20, 20, 255, 0.4);
+    margin-left: 5rem;
+    margin-right: 5rem;
+    text-align: left;
+}
+
+.subtitle {
+    font-style: italic;
+}
+
+.headerInfo * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.headerSectionStart {
+    margin-top: 1.5rem;
+}
+
+.seriesSection,
+.seriesParts {
+    margin-left: auto !important;
+    /* needed to overwrite semantic-ui segment */
+    margin-right: auto !important;
+    /* needed to overwrite semantic-ui segment */
+    width: fit-content;
+}
+
+.seriesParts p {
+    text-align: left;
+}
+
+.postContainer {
+    margin-left: auto !important;
+    /* needed to overwrite semantic-ui segment */
+    margin-right: auto !important;
+    /* needed to overwrite semantic-ui segment */
+    max-width: 60rem;
+}
+
+.cards {
+    display: block;
+}
+
+.card {
+    width: 30rem !important;
+}
