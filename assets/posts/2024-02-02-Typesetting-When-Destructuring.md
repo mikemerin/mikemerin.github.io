@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TS Type Setting When Destructuring"
+title: "Type Setting When Destructuring"
 date: 2024-02-02 21:01:37 -0400
 tags: TypeScript
 summary: Resolve TS errors even when breaking down objects

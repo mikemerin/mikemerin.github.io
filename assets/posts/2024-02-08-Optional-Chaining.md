@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TS Optional Chaining With Brackets & Functions"
+title: "Optional Chaining With Brackets & Functions"
 date: 2024-02-08 14:31:44 -0400
 tags: TypeScript
 summary: Handling possible undefined in all situations
