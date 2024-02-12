@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Versatility of JSON.stringify's Replacers"
-date: 2021-06-27 20:35:12 -0400
+date: 2021-07-11 16:43:20 -0400
 tags: TypeScript, JSON
 summary: Cleanly Output, Control, and Replace JSON/Objects
 ---

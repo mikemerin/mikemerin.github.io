@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.3cb7a767.css",
-    "main.js": "./static/js/main.af4e6c08.js",
+    "main.js": "./static/js/main.766585ba.js",
     "static/media/brand-icons.svg": "./static/media/brand-icons.6729d29753e000c17489.svg",
     "static/media/icons.svg": "./static/media/icons.62d9dae4e0040e81c980.svg",
     "static/media/outline-icons.svg": "./static/media/outline-icons.9c4845b4b41ef40a22fa.svg",
@@ -36,7 +36,7 @@
     "static/media/2017-06-23-Random-Question-Generator-2.md": "./static/media/2017-06-23-Random-Question-Generator-2.203f3a11869637c1e11a.md",
     "static/media/2017-05-20-Javascript-Cheat-Sheet.md": "./static/media/2017-05-20-Javascript-Cheat-Sheet.c0467dabb11f69859737.md",
     "static/media/2021-01-11-ECMA-Partition.md": "./static/media/2021-01-11-ECMA-Partition.b4b9b922e54b3e032b8c.md",
-    "static/media/2021-07-11-Cleanly-Output-JSON.md": "./static/media/2021-07-11-Cleanly-Output-JSON.cfbac77a44f3a52aab98.md",
+    "static/media/2021-07-11-Cleanly-Output-JSON.md": "./static/media/2021-07-11-Cleanly-Output-JSON.625f72faeb8511b95bc6.md",
     "static/media/2024-02-02-Typesetting-When-Destructuring.md": "./static/media/2024-02-02-Typesetting-When-Destructuring.7e9b646a8c1890814200.md",
     "static/media/2018-12-30-Intro-to-SQL.md": "./static/media/2018-12-30-Intro-to-SQL.7a75c2b2a98baa45d991.md",
     "static/media/2017-10-17-RegExp-3.md": "./static/media/2017-10-17-RegExp-3.85cd399f635159140f51.md",
@@ -45,6 +45,7 @@
     "static/media/2021-01-02-JS-thisArg.md": "./static/media/2021-01-02-JS-thisArg.43c17334a833bf7fbd35.md",
     "static/media/2021-01-05-Signed-Unsigned.md": "./static/media/2021-01-05-Signed-Unsigned.78dc7fe14d38147e189c.md",
     "static/media/2021-03-02-Ambiguous-SQL-Column-Names.md": "./static/media/2021-03-02-Ambiguous-SQL-Column-Names.b96f05ea9d33e153de39.md",
+    "static/media/2021-07-24-Conditional-Object-Properties.md": "./static/media/2021-07-24-Conditional-Object-Properties.236cc1880f61fc023f20.md",
     "static/media/2021-06-27-Advanced-Descructuring copy.md": "./static/media/2021-06-27-Advanced-Descructuring copy.c754bcaf8d80dcadd36c.md",
     "static/media/2020-04-09-Git-Staging-Wildcard.md": "./static/media/2020-04-09-Git-Staging-Wildcard.e08497aa81ae0870f245.md",
     "static/media/2024-02-08-Optional-Chaining.md": "./static/media/2024-02-08-Optional-Chaining.e647d61d13d3ad3ca7ad.md",
@@ -53,10 +54,10 @@
     "static/media/2021-03-24-Git-Branch-Deletion.md": "./static/media/2021-03-24-Git-Branch-Deletion.7b8b1b0027663526997a.md",
     "static/media/2021-07-09-Git-Clone-Filename-Long copy.md": "./static/media/2021-07-09-Git-Clone-Filename-Long copy.119ed2bc8e7c08f5c33e.md",
     "main.3cb7a767.css.map": "./static/css/main.3cb7a767.css.map",
-    "main.af4e6c08.js.map": "./static/js/main.af4e6c08.js.map"
+    "main.766585ba.js.map": "./static/js/main.766585ba.js.map"
   },
   "entrypoints": [
     "static/css/main.3cb7a767.css",
-    "static/js/main.af4e6c08.js"
+    "static/js/main.766585ba.js"
   ]
 }
