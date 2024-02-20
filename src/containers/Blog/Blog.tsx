@@ -7,6 +7,14 @@ import { Domain } from '../../domain';
 import { selectors } from '../../redux/selectors';
 import { formatDate, sectionPrimaryInfo } from '../../utils';
 
+type GeneratedRowInfo = {
+  row: JSX.Element[];
+  rowIndex: number;
+  rows: JSX.Element[];
+  uniquePosts: Set<string>;
+  totalTags: number;
+}
+
 const Blog = (): JSX.Element => {
   const posts = useSelector(selectors.getPosts);
 
@@ -18,7 +26,7 @@ const Blog = (): JSX.Element => {
   // const tabId = (searchParams.get('tab') || Domain.blogPages['main'].searchParam) as Domain.Enums.BlogPageKey;
 
   const postIds = Object.keys(posts.info).sort((a, b) => {
-    const postA =posts.info[a];
+    const postA = posts.info[a];
     const postB = posts.info[b]
     if (postA.date === postB.date) {
       return postA.fileName > postB.fileName ? 1 : -1;
@@ -49,14 +57,6 @@ const Blog = (): JSX.Element => {
     });
   }
 
-  type GeneratedRowInfo = {
-    row: JSX.Element[];
-    rowIndex: number;
-    rows: JSX.Element[];
-    uniquePosts: Set<string>;
-    totalTags: number;
-  }
-
   const generateRowInfo = (): GeneratedRowInfo => ({
     row: [],
     rowIndex: 0,
@@ -72,7 +72,7 @@ const Blog = (): JSX.Element => {
       [defaultGroupName]: generateRowInfo(),
     };
 
-    const sectionInfo = posts.segments[tabId];
+    let sectionInfo = posts.segments[tabId];
     const primaryInfo = sectionPrimaryInfo[Domain.Enums.Page.BLOG][tabId];
 
     primaryInfo.groups && Object.keys(primaryInfo.groups).forEach((groupKey) => {
@@ -82,11 +82,43 @@ const Blog = (): JSX.Element => {
     const groupTagMap: Domain.ObjEnum<string> = primaryInfo.groups ?
       Object.entries(primaryInfo.groups).reduce((acc, [groupName, groupTags]) => {
         groupTags.forEach((groupTag) => {
+          type GeneratedRowInfo = {
+            row: JSX.Element[];
+            rowIndex: number;
+            rows: JSX.Element[];
+            uniquePosts: Set<string>;
+            totalTags: number;
+          }
           acc[groupTag] = groupName;
         })
         return acc;
       }, {} as Domain.ObjEnum<string>)
       : {};
+
+    const primaryInfoTitles = Object.keys(primaryInfo?.titles || {});
+    if (primaryInfo.titles && primaryInfo.titles[primaryInfoTitles[0]]?.common) {
+      const commonTitleTagMap: Domain.ObjEnum<string> = Object.entries(primaryInfo.titles).reduce((acc, [title, { common }]) => {
+        (common || []).forEach((altTag) => {
+          acc[altTag] = title;
+        })
+        return acc;
+      }, {} as Domain.ObjEnum<string>);
+
+      const commonSectionInfo: typeof sectionInfo = primaryInfoTitles.reduce((acc, title) => {
+        acc[title] = sectionInfo[title] || [];
+        return acc;
+      }, {} as Domain.ObjEnum<string[]>);
+
+      Object.entries(sectionInfo).forEach(([tag, entries]) => {
+        const commonTitleTag = commonTitleTagMap[tag];
+        if (commonTitleTag) {
+          commonSectionInfo[commonTitleTag] = [...commonSectionInfo[commonTitleTag], ...entries];
+        } else if (!primaryInfoTitles.includes(tag)) {
+          commonSectionInfo[tag] = entries;
+        }
+      });
+      sectionInfo = commonSectionInfo;
+    }
 
     const pushToRows = (groupName: string, output?: JSX.Element) => {
       groups[groupName].rows.push(
@@ -95,7 +127,7 @@ const Blog = (): JSX.Element => {
         </GridRow>
       );
       groups[groupName].row = [];
-    }
+    };
 
     Object.entries(sectionInfo).sort(([aName, aPosts], [bName, bPosts]) => {
       if (bPosts.length === aPosts.length) {
@@ -128,9 +160,9 @@ const Blog = (): JSX.Element => {
       const output = (
         <GridColumn key={`${tabId}Output${sectionIndex}`}>
           <Segment color='blue'>
-            <h4 className={segmentCommon ? 'segmentTitleHasSubtitle' : ''}>{sectionName} ({sectionList.length})</h4>
+            <h4 className={'segmentTitleHasSubtitle'}>{sectionName} ({sectionList.length})</h4>
             {segmentSummary}
-            <i>{segmentCommon && `(${segmentCommon.join(', ')})`}</i>
+            <i>{segmentCommon ? `(${segmentCommon?.join(', ')})` : <br />}</i>
             <Table key={`${tabId}TabParts`}>
               <TableBody>
                 {sectionList}

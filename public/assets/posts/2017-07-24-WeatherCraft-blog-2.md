@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Custom Routes, Endpoints, and SQL"
+title: "Custom Routes, Endpoints, and SQL"
 subtitle: "WeatherCraft blog part 2: letting the back end do work for you"
 date: 2017-07-24 20:28:08 -0400
 tags: Ruby, Rails, SQL, ActiveRecord

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "ActiveRecord and SQL with Big Data"
+title: "ActiveRecord and SQL with Big Data"
 subtitle: "WeatherCraft blog part 1: how to scrape data quickly"
-date:   2017-06-27 13:59:03 -0400
+date: 2017-06-27 13:59:03 -0400
 tags: Ruby, Rails, SQL, ActiveRecord
 series: WeatherCraft Blog
 projects: WeatherCraft

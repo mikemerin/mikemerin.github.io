@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Git Branch Deletion"
+title: "Git Branch Deletion"
 subtitle: "a quick little prune"
-date:   2021-03-24 08:43:29 -0400
+date: 2021-03-24 08:43:29 -0400
 tags: Git
 summary: One line trick to quickly clean up your Git branches
 ---

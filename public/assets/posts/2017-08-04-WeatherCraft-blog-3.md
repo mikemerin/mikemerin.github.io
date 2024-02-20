@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Ease of ChartJS"
+title: "The Ease of ChartJS"
 subtitle: "WeatherCraft blog part 3: showing off that data"
 date: 2017-08-04 12:27:14 -0400
 tags: Ruby, Rails, SQL, ActiveRecord, ChartJS, React

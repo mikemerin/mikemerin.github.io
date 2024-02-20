@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Ambiguous SQL Column Names"
+title: "Ambiguous SQL Column Names"
 subtitle: "Too many Mikes? Be More Specific"
-date:   2021-03-02 13:27:04 -0400
+date: 2021-03-02 13:27:04 -0400
 tags: SQL
 summary: Handle multiple tables that have the same column names
 ---

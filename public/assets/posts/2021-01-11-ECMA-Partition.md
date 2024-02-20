@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Creating a New ECMAScript Function - Partition"
+title: "Creating a New ECMAScript Function - Partition"
 subtitle: "Works for Ruby? Works Here Too"
-date:   2021-01-11 14:45:59 -0400
+date: 2021-01-11 14:45:59 -0400
 tags: JavaScript
 summary: Implementing Ruby's Partition function in JS
 ---
@@ -10,28 +10,28 @@ Ruby has some fun functions that help out greatly with array manipulation. Why c
 
 Before I started programming in JavaScript my first language was Ruby, with some of my favorite parts bring its functions that allowed simple modification of arrays. Overall many of these exist in JavaScript, but the ones that are missing are:
 
-* Partition - works like filter, but instead of returning one array of [true] values, returns two arrays of [[true], [false]]
+**Partition** - works like filter, but instead of returning one array of [true] values, returns two arrays of [[true], [false]]
 
-    > ```ruby
-    > example: [1,2,3].partition { |x| x % 2 === 0 } # [[2], [1, 3]]
-    > ```
+```ruby
+[1,2,3].partition { |x| x % 2 === 0 } # [[2], [1, 3]]
+```
 
-* Combination - given a number N, returns groups of N elements in an array in the order they appear
+**Combination** - given a number N, returns groups of N elements in an array in the order they appear
 
-    > ```ruby
-    > example: [1,2,3].combination(2).to_a # [[1, 2], [1, 3], [2, 3]]
-    > ```
+```ruby
+[1,2,3].combination(2).to_a # [[1, 2], [1, 3], [2, 3]]
+```
 
-* Permutation - similar to combination, but groups in any order, backwards or forwards
-    > ```ruby
-    > example: [1,2,3].permutation(2).to_a # [[1, 2], [1, 3], [2, 1], [2, 3], [3, 1], [3, 2]]
-    > ```
+**Permutation** - similar to combination, but groups in any order, backwards or forwards
+```ruby
+[1,2,3].permutation(2).to_a # [[1, 2], [1, 3], [2, 1], [2, 3], 1], [3, 2]]
+```
 
 So I decided to try and add them to the language! After finding the [ecma262 github](https://github.com/tc39/ecma262/) to start contributing, I got to work.
 
-<hr />
+---
 
-<details><summary>For my first draft I copied the existing "filter" code, which is as follows </summary>
+For my first draft I copied the existing "filter" code, which is as follows
 
 ```js
 if (!Array.prototype.filter){
@@ -73,11 +73,7 @@ if (!Array.prototype.filter){
     };
 }
 ```
-</details>
-
-<br/>
-
-<details><summary>Now first off, the original code seemed like it could be cut down as it had some repeated code in it</summary>
+Now first off, the original code seemed like it could be cut down as it had some repeated code in it:
 
 ```js
 if (!Array.prototype.partition){
@@ -110,11 +106,7 @@ if (!Array.prototype.partition){
 }
 ```
 
-</details>
-
-<br>
-
-<details><summary>With that changed I was ready to work on the new method! In my first runthrough, I modified the code to see if it could  also return the false values just like Ruby</summary>
+With that changed I was ready to work on the new method! In my first runthrough, I modified the code to see if it could  also return the false values just like Ruby
 
 ```js
 if (!Array.prototype.partition){
@@ -150,13 +142,10 @@ if (!Array.prototype.partition){
     };
 }
 ```
-</details>
-
-<br/>
 
 And it works! This example gives the following results:
 
-```js
+```ts
 const arr = [1, 2, 3, 4, 5];
 const output = arr.partition(x => x % 2 === 0); // [[2, 4], [1, 3, 5]];
 output[0]; // [2, 4]
@@ -168,7 +157,7 @@ arr.partition(function(x) { return x % 2 === this.even }, myObject); // [[2, 4],
 arr.partition(function(x) { return x % 2 === this.odd }, myObject); // [[1, 3, 5], [2, 4]];
 ```
 
-<details><summary>Now this obviously wasn't the cleanest code, so on my second runthrough I did the following</summary>
+Now this obviously wasn't the cleanest code, so on my second runthrough I did the following
 
 ```js
 if (!Array.prototype.partition){
@@ -197,9 +186,6 @@ if (!Array.prototype.partition){
     };
 }
 ```
-</details>
-
-<br/>
 
 That seems much cleaner now, and still works! Off to see if this will go far in the process :)
 

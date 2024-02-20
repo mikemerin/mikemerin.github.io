@@ -28,8 +28,8 @@ const sectionPrimaryInfo: Domain.SectionPrimaryInfo = {
                 'Command Line Scripting': ['Bash', 'Git', 'NPM'],
             },
             titles: {
-                'JavaScript': {
-                    common: ['JS', 'ECMAScript']
+                'TypeScript': {
+                    common: ['TS', 'JavaScript', 'JS', 'ECMAScript']
                 },
                 'Object Oriented Programming': {
                     common: ['OOP']
@@ -40,9 +40,9 @@ const sectionPrimaryInfo: Domain.SectionPrimaryInfo = {
                 'Regex': {
                     common: ['RegExp', 'Regular Expressions']
                 },
-                'Swift': {
-                    common: ['iOS']
-                },
+                // 'Swift': {
+                //     common: ['iOS']
+                // },
             }
         },
     },

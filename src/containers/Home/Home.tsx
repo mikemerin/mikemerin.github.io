@@ -28,7 +28,7 @@ const Home = (): JSX.Element => (
       </Segment>
       <Segment color='grey'>
         <h3><i>Note: This site is a work in progress as I finish porting over posts from my old blog, and add new features to this one. Updates include:</i></h3>
-        <div>Finish backlog of posts from old blog (around 25) converting to new format</div>
+        <div>Add and convert old blog posts (around 8 remaining) to new format</div>
         <div>Add remaining data to current converted blog posts</div>
         <div>Show related posts/categories with links</div>
         <div>Language toggling for those specific type of posts</div>

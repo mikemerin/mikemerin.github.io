@@ -9,6 +9,7 @@ type ButtonInfo = {
 
 const buttons: ButtonInfo[] = [
   { content: 'Github', url: 'http://github.com/mikemerin', icon: 'github square' },
+  { content: 'LinkedIn', url: 'https://www.linkedin.com/in/mike-merin/', icon: 'linkedin square' },
 ];
 
 const buttonTemplate = ({ content, url, icon }: ButtonInfo): JSX.Element => (

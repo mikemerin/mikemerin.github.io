@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A Python Cheat Sheet"
+title: "A Python Cheat Sheet"
 date: 2017-09-05 23:28:15 -0400
 tags: Python
 series: Cheat Sheets
