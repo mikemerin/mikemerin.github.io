@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "JS Through Ruby-Colored Glasses"
+title: "JS Through Ruby-Colored Glasses"
 subtitle: "A JS Cheat Sheet"
-date:   2017-05-20 22:43:38 -0400
+date: 2017-05-20 22:43:38 -0400
 tags: JavaScript, Ruby
 series: Ruby Dev Learns Other Langauges
 summary: Replicate Ruby shortcuts, iterations, and methods in JS

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "A JavaScript Cheat Sheet"
-date:   2017-05-20 22:46:38 -0400
+title: "A JavaScript Cheat Sheet"
+date: 2017-05-20 22:46:38 -0400
 tags: JavaScript
 series: Cheat Sheets
 summary: One-stop-shop for JS functions methods and more

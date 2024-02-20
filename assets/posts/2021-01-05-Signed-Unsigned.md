@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Integers? Give Me a Sign"
+title: "Integers? Give Me a Sign"
 subtitle: "More Than Just a Name"
-date:   2021-01-04 19:02:25 -0400
+date: 2021-01-04 19:02:25 -0400
 tags: Rust
 summary: Covering Rust's brilliant handling of number types
 ---

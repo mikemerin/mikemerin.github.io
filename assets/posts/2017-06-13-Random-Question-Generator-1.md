@@ -2,7 +2,7 @@
 layout: post
 title: "Make a Dynamically Generated Quiz"
 subtitle: "creating the question object"
-date:   2017-06-13 11:54:14 -0400
+date: 2017-06-13 11:54:14 -0400
 tags: Ruby, JavaScript
 series: Anatomy of a Quiz Generator
 summary: Code along for a quiz made by and for programmers

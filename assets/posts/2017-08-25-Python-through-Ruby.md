@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Python Through Ruby-Colored Glasses"
+title: "Python Through Ruby-Colored Glasses"
 subtitle: "A Python Cheat Sheet"
-date:   2017-08-25 19:53:26 -0400
+date: 2017-08-25 19:53:26 -0400
 tags: Python, Ruby
 series: Ruby Dev Learns Other Langauges
 summary: Replicate Ruby shortcuts, iterations, and methods in Python

@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Add More Complexity, but Not Work"
+title: "Add More Complexity, but Not Work"
 subtitle: "expanding the question object"
-date:   2017-06-23 16:53:18 -0400
+date: 2017-06-23 16:53:18 -0400
 tags: Ruby, JavaScript
 series: Anatomy of a Quiz Generator
 summary: Code along for even more dynamic question generation

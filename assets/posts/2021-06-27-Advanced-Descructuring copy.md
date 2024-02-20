@@ -2,7 +2,7 @@
 layout: post
 title: "Advanced Descructuring Techniques"
 date: 2021-06-27 20:35:12 -0400
-tags: JavaScript
+tags: TypeScript
 summary: Extract from objects and optionally rename them
 ---
 Given this object:

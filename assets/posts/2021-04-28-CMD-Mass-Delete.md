@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Bash/CMD Mass Delete"
+title: "Bash/CMD Mass Delete"
 subtitle: "bye bye similar files"
-date:   2021-04-28 15:04:01 -0400
+date: 2021-04-28 15:04:01 -0400
 tags: Bash
 summary: One line trick to quickly remove nested directories
 ---

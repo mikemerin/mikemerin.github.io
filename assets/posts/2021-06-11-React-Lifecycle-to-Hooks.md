@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Convert React Lifecycle Methods to Hooks"
+title: "Convert React Lifecycle Methods to Hooks"
 subtitle: "functional is the new class"
 date: 2021-06-11 19:01:42 -0400
 tags: React, Hooks
