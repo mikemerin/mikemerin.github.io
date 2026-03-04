@@ -22,7 +22,7 @@ const Other = (): JSX.Element => {
           'Composed and produced soundtracks for personal game projects using various digital audio workstations.',
           'Proficient in over a dozen musical instruments, primary includes piano, guitar, and bass.',
         ],
-        link: 'https://soundcloud.com/mike-merin/sets',
+        link: 'https://soundcloud.com/mikemerin/sets',
         linkName: 'SoundCloud'
       },
       {
