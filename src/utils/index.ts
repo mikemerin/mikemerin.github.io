@@ -31,6 +31,7 @@ const getPosts = async () => {
 
   const fileNames = rawFileNames.map((rawFileName) => rawFileName.replace(/(^.\/)|(.md$)/g, '')) || [];
   const postOutput: Domain.AppState['posts'] = defaultState().posts;
+  const allPostFileNames: string[] = [];
 
   await Promise.all(
     fileNames.map(async (fileName) => {
@@ -90,13 +91,39 @@ const getPosts = async () => {
           } as Domain.Post
           );
         postOutput.info[fileName] = { ...eachHeader, fileName };
+        allPostFileNames.push(fileName);
       } catch (err) {
         console.log('No file found for' + fileName, err);
       }
     }).filter(x => x)
   );
 
-return postOutput;
+  // Populate special segments
+  if (allPostFileNames.length > 0) {
+    postOutput.segments[Domain.Enums.BlogPageKey.all]['All Posts'] = allPostFileNames;
+    
+    // Populate main: posts not in a series
+    const mainPosts = allPostFileNames.filter(fileName => {
+      return !postOutput.info[fileName].series;
+    });
+    if (mainPosts.length > 0) {
+      postOutput.segments[Domain.Enums.BlogPageKey.main]['Main Posts'] = mainPosts;
+    } else {
+      // Fallback to all posts if no non-series posts found
+      postOutput.segments[Domain.Enums.BlogPageKey.main]['All Posts'] = allPostFileNames;
+    }
+    
+    // Populate quickTips: posts tagged with "Quick Tips"
+    const quickTipsPosts = postOutput.segments[Domain.Enums.BlogPageKey.tags]['Quick Tips'] || [];
+    if (quickTipsPosts.length > 0) {
+      postOutput.segments[Domain.Enums.BlogPageKey.quickTips]['Quick Tips'] = quickTipsPosts;
+    } else {
+      // Fallback to all posts if no quick tips found
+      postOutput.segments[Domain.Enums.BlogPageKey.quickTips]['All Posts'] = allPostFileNames;
+    }
+  }
+
+  return postOutput;
 }
 
 const formatDate = (dateTime: string, short?: boolean) => {

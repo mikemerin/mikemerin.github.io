@@ -10,7 +10,7 @@ summary: Replicate Ruby shortcuts, iterations, and methods in Python
 
 If you learned how to program in Ruby, you probably noticed there's a large amount of shortcuts available to cut down on typing (while helping keep your code clean), as well as having a straightforward "English-like" syntax. While JS has similar but more labor-intensive similarities, the syntax for Python is a little more abstract (at least at first). The lack of Ruby-like shortcuts in Python are very noticeable, and if like me you learned Ruby first you may not have known what those shortcuts actually do under the hood, so let's dive right in and compare how Ruby and Python handle these shortcuts, iterations, and methods.
 
-**I'll be going into a lot of detail in this post, if you want an abbreviated Python-only cheat sheet you can find that [here](https://mikemerin.github.io/Python-Cheat-Sheet/), though I would recommend going through this post if you want a better understanding of how everything works.**
+**I'll be going into a lot of detail in this post, if you want an abbreviated Python-only cheat sheet you can find that [here](https://mikemerin.github.io/#/blog?post=2017-09-05-Python-Cheat-Sheet), though I would recommend going through this post if you want a better understanding of how everything works.**
 
 I'll assume you know how to iterate in Ruby already, but if not then look at my [first cryptography post](https://mikemerin.github.io/cryptography/) for a detailed explanation.
 

@@ -135,7 +135,7 @@ const Projects = (): JSX.Element => {
   }
 
   return projectId ? <Post /> : (
-    <Segment className='projectContainer'>
+    <Segment className='projectContainer faded padding-medium'>
       <Grid columns='three' divided>{projects.rows}</Grid>
     </Segment>
   );

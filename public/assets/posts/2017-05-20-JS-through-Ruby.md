@@ -9,7 +9,7 @@ summary: Replicate Ruby shortcuts, iterations, and methods in JS
 ---
 If you learned how to program in Ruby, you probably noticed there's a large amount of shortcuts available to cut down on typing (while helping keep your code clean), as well as having a straightforward "English-like" syntax. JS sort of has these but require more labor to actually get working. These shortcuts are very noticeable when you get into looping or iterating over objects, and if like me you learned Ruby first, you may not have known what those shortcuts actually do under the hood, so let's dive right in and compare how Ruby and JavaScript handle these shortcuts, iterations, and methods.
 
-**I'll be going into a lot of detail in this post, if you want an abbreviated JS-only cheat sheet you can find that [here](/blog?post=2017-05-20-Javascript-Cheat-Sheet), though I would recommend going through this post if you want a better understanding of how everything works.**
+**I'll be going into a lot of detail in this post, if you want an abbreviated JS-only cheat sheet you can find that [here](/#/blog?post=2017-05-20-Javascript-Cheat-Sheet), though I would recommend going through this post if you want a better understanding of how everything works.**
 
 I'll assume you know how to iterate in Ruby already, but if not then look at my [first cryptography post](https://mikemerin.github.io/cryptography/) for a detailed explanation.
 
@@ -52,7 +52,7 @@ Link | Ruby | JS Equivalent | Description
 ### Arrow Functions, Implicit Returns
 ---
 I'll be shortening my JS scripts with ES6 JS notation and/or *arrow functions*. This lets us turn our functions into cleaner looking arrow functions which do the same exact thing:
-```javascript
+```ts
 // JavaScript
 array.forEach( function(x) { array2.push(x) } )
 array.forEach( (x) => { array2.push(x) } )
@@ -61,13 +61,13 @@ array.forEach( function(x, y) { array2.push(x * y) } )
 array.forEach( (x, y) => { array2.push(x * y) } )
 ```
 Also, when there's only one element (in this case "x"), we can remove the parentheses:
-```javascript
+```ts
 array.forEach( x => { array2.push(x) } )
 ```
 Now there's less characters cluttering up the space and it's easier to see what the function points to (literally). It's also a good thing to know about something called "implicit returns", which means the arrow function will call `return` automatically without you having to type it in! You can do this by not using `{}` after the arrrows (you can surround them in `()` if you want to do multi-line).
 
 These all do the same thing:
-```javascript
+```ts
 // JavaScript-Cheat-Sheet
 function(x) { return x * 2 }
 (x) => { return x * 2 }
@@ -91,7 +91,7 @@ puts "#{name}, the #{age} year old #{animal}."
 #=> "Lily, the 8 year old dog."
 ```
 
-```javascript
+```ts
 // JavaScript
 animal = "dog"
 name = "Lily"
@@ -107,7 +107,7 @@ This is easier than typing out this ugly looking mix of objects that work the ex
 # Ruby
 puts name + ", the " + age.to_s + " year old " + animal + "."
 ```
-```javascript
+```ts
 // JavaScript
 console.log(name + ", the " + age + " year old " + animal + ".")
 ```
@@ -122,7 +122,7 @@ Converting to strings:
 # Ruby
 150.to_s #=> "150"
 ```
-```javascript
+```ts
 // JavaScript
 n = 150
 n.toString() //=> "150"
@@ -134,7 +134,7 @@ Converting to an integer:
 # Ruby
 "10".to_i #=> 10
 ```
-```javascript
+```ts
 // JavaScript
 parseInt("10") //=> 10
 // base 10
@@ -150,7 +150,7 @@ Converting to a float:
 "10".to_f #=> 10.0
 10.to_f #=> 10.0
 ```
-```javascript
+```ts
 // JavaScript
 parseFloat("10.5") //=> 10.5
 parseFloat(10.5) //=> 10.5
@@ -171,7 +171,7 @@ end
 array #=> [1,2,3,4,5]
 ```
 
-```javascript
+```ts
 // JavaScript
 var array = []
 var x = 1
@@ -204,7 +204,7 @@ while x < 6; array.push(x); x += 1 end
 array #=> [1,2,3,4,5]
 ```
 
-```javascript
+```ts
 // JavaScript
 array = []
 x = 1
@@ -229,7 +229,7 @@ array #=> [1,2,3,4,5]
 
 Unfortunately there's no quick way to do a range iterator in JavaScript (the `(1..5)` above), ***however*** `for` is still very useful if we use it another way. Remember that while loop from before? Here's how we'd cleanly do it in JS:
 
-```javascript
+```ts
 // JavaScript
 array = []
 for (let x = 1;
@@ -241,7 +241,7 @@ array #=> [1,2,3,4,5]
 
 Or the MUCH cleaner one-liner:
 
-```javascript
+```ts
 // JavaScript
 array = []
 for (let x = 1; x < 6; x++) { array.push(x) }
@@ -273,7 +273,7 @@ array2 #=> [5,4,3,2,1]
 
 Now let's finally do that fancy JS iteration using `for` but this time over an array. To spoof the range we'll set our index to 0, limit it to the array.length, and add up by 1:
 
-```javascript
+```ts
 // JavaScript
 array = [1,2,3,4,5]
 array2 = []
@@ -304,7 +304,7 @@ for x in array; array2.push(x) end
 
 In JS we'll introduce `in`:
 
-```javascript
+```ts
 // JavaScript
 for (let i in array) { console.log( array[i] ) }
 for (let i in array) { array2.push( array[i] ) }
@@ -320,7 +320,7 @@ array.each { |x| puts x }
 array.each { |x| array2.push2.push( array[i] ) }
 ```
 
-```javascript
+```ts
 // JavaScript
 array.forEach( x => { console.log(x) } )
 array.forEach( x => { array2.push(x) } )
@@ -337,7 +337,7 @@ array = ["Hello", "World"]
 array.each_with_index { |x,i| puts "the index is #{i}, the element is #{x}" }
 ```
 
-```javascript
+```ts
 // JavaScript
 array.forEach( (x, i) => console.log(`The index is ${i}, the element is ${x}`) )
 ```
@@ -358,7 +358,7 @@ array.each { |x| x * 2 } #=> [1,2,3,4,5] unchanged output
 array.map { |x| x * 2 } #=> [2,4,6,8,10] changed output
 ```
 
-```javascript
+```ts
 // JavaScript
 array.forEach(x => x * 2) //=> undefined (no output)
 array.map(x => x) //=> [1,2,3,4,5] unchanged output (technically spoofs the input like Ruby .each)
@@ -379,7 +379,7 @@ array.map.with_index { |x,i| i } #=> [0,1,2,3,4]
 array.map.with_index { |x,i| x * i } #=> [0,20,60,120,200]
 ```
 
-```javascript
+```ts
 // JavaScript
 array.map((x, i) => i) //=> [0,1,2,3,4]
 array.map((x, i) => x * i) //=> [0,20,60,120,200]
@@ -424,7 +424,7 @@ In JS however, we don't have these shortcuts available to us, so instead we have
 array.reduce(:+)
 ```
 
-```javascript
+```ts
 // JavaScript
 array.reduce( "sum script" )
 ```
@@ -436,7 +436,7 @@ array.reduce( "sum script" )
 array.reduce(0, :+)
 ```
 
-```javascript
+```ts
 // JavaScript
 array.reduce( "sum script", 0 )
 ```
@@ -449,14 +449,14 @@ array.reduce { |sum, x| sum + x }
 array.reduce(0) { |sum, x| sum + x }
 ```
 
-```javascript
+```ts
 // JavaScript
 array.reduce( function(sum, x) { return sum + x } , 0)
 ```
 
  Here's how these same reduce functions can look in JS, including with the cleaner ES6 notation:
 
-```javascript
+```ts
 // JavaScript
 array.reduce( function(sum, x) { return sum + x } )
 array.reduce( function(sum, x) { return sum + x }, 0 )
@@ -467,7 +467,7 @@ array.reduce( (sum, x) => sum + x, 0 )
 
 Again the default value in JS is AFTER the sum variable, not before it. So here's the answer to what that `(:+)` symbol (smiley) was doing under the hood in Ruby, but we'll explain it through JS! We can make our reduce function cleaner though by making `sum` into a variable (using `const`), and we can also make one for multiplication while we're at it:
 
-```javascript
+```ts
 // JavaScript
 const sum = (sum,x) => sum + x
 const multi = (multi,x) => multi * x
@@ -501,7 +501,7 @@ In JS it's a bit more complicated, though only by a bit when you get used to it.
 
 The first way is the easiest (and my preferred) way: use `.concat` to append each element onto a blank array along with a neat little JS trick:
 
-```javascript
+```ts
 // javascript
 [].concat(...array) //=> [1, 2, 3, 4, 5, 6, null, 7, 8, 9]
 [].concat(0, ...array) //=> [0, 1, 2, 3, 4, 5, 6, null, 7, 8, 9]
@@ -510,7 +510,7 @@ The first way is the easiest (and my preferred) way: use `.concat` to append eac
 
 I'll explain the `...` in a second, but the important part about this `.concat` method is that you can combine **any number of arrays or values** and it will combine them all! Meanwhile, in the `(...array)`, that `...` is what's known in JS as a `spread operator` which, well, spreads out an array. It's used during creation or changing of arrays to expand the array and call on all elements in it. For your understanding, here is an example of what this operator does:
 
-```javascript
+```ts
 // JavaScript
 a1 = [1,2,3]
 a2 = [4,5,6]
@@ -521,7 +521,7 @@ a2 = [4,5,6]
 
 The second way is by using `.apply`, which, well, applies what you want into an array. We can either do this to an empty array or to an existing one. Note that unlike the first way you cannot combine more than one array or value:
 
-```javascript
+```ts
 // JavaScript
 [].concat.apply([],array) //=> [1, 2, 3, 4, 5, 6, null, 7, 8, 9]
 [].concat.apply([-1,0],array) //=> [-1, 0, 1, 2, 3, 4, 5, 6, null, 7, 8, 9]
@@ -541,7 +541,7 @@ Hold on though, in the above example, even though we ran `flatten`/`concat` on o
 
 Which basically iterates over the array and removes `nil` whenever it finds it (non-destructively). To destructively do this just use `.compact!` or `array.delete(nil)`. The syntax will look very similar to the latter where we'll tell our program to delete any element that doesn't pass our test, aka keeping elements that pass. This brings us to how `.filter` is used in JS:
 
-```javascript
+```ts
 // JavaScript
 [1, 2, null, 3, 4, 5, "hey"].filter(x => x) //=> [1, 2, 3, 4, 5, "hey"]
 [1, 2, null, 3, 4, 5, "hey"].filter(Number) //=> [1, 2, 3, 4, 5]
@@ -567,7 +567,7 @@ array_string.sort #=> ["everyone", "going?", "hey", "how's", "it"]
 array_string.sort.reverse #=> ["it", "how's", "hey", "going?", "everyone"]
 ```
 
-```javascript
+```ts
 // JavaScript
 var array_string = ["hey", "everyone", "how's", "it", "going?"]
 array_string.sort() //=> [ "everyone", "going?", "hey", "how's", "it" ]
@@ -583,7 +583,7 @@ array.sort #=> [5, 14, 16, 22, 25]
 array.sort.reverse #=> [25, 22, 16, 14, 5]
 ```
 
-```javascript
+```ts
 // JavaScript
 var array = [14, 25, 16, 22, 5]
 array.sort() //=> [ 14, 16, 22, 25, 5 ]
@@ -602,7 +602,7 @@ array_string.sort.map(&:to_i) #=> [14, 16, 22, 25, 5]
 
 The number "1" in 14 appears before the number "5", just like how the "h" in hey appears before the "i" in it, even though "it" is two letters long and "hey" is three letters long, like how 5 is one digits long and 14 is two digits long. So how do we fix this? There's a little trick and it involves forcing JavaScript to compare values of adjacent elements. I'll explain this after we do it:
 
-```javascript
+```ts
 // JavaScript
 var array = [14, 25, 16, 22, 5]
 array.sort( function(a,b) { return a - b } ) //=> [ 5, 14, 16, 22, 25 ]
@@ -631,7 +631,7 @@ array_string.sort_by { |x| x.length }.reverse #=>  ["everyone", "going?", "how's
 
 For JavaScript, we'll use that trick from before but instead of comparing each element `a` to `b`, we'll compare their *lengths*:
 
-```javascript
+```ts
 // JavaScript
 var array_string = ["hey", "everyone", "how's", "it", "going?"]
 array_string.sort( (a,b) => a.length - b.length ) //=> [ "it", "hey", "how's", "going?", "everyone" ]
@@ -667,7 +667,7 @@ array_hash.sort_by { |x| x[:population] }
 
 We call on the attribute in ruby, however in JS we call it the exact same way as we would the length, but as the attribute!
 
-```javascript
+```ts
 // JavaScript
 var array_hash = [ {borough: 'Manhattan', population: 1585874},
                    {borough: 'Brooklyn', population: 2504706},
@@ -718,7 +718,7 @@ hash.sort_by { |key, value| value }
 
 JavaScript can't actually directly do this using sort, only indirectly, in fact it will give you the error "hash.sort is not a function". So we have to use a trick called `Object.values()`, which I'll explain when we get to that section! For now I'll just show you what it looks like:
 
-```javascript
+```ts
 // JavaScript
 var object = {Manhattan: 1585874, Brooklyn: 2504706, Queens: 2230545, Bronx: 1385107, Staten_Island: 486730}
 object.sort() //=> error, not a function
@@ -752,7 +752,7 @@ def title(name)
 end
 ```
 
-```javascript
+```ts
 // JavaScript
 function title(name) {
   if (name === "CJ") { return "Press Secretary" }
@@ -783,7 +783,7 @@ def title(name)
 end
 ```
 
-```javascript
+```ts
 // JavaScript
 function title(name) {
   switch(name) {
@@ -819,7 +819,7 @@ names.map do |name|
 end
 ```
 
-```javascript
+```ts
 // JavaScript
 names.map(name => {
   switch(name) {
@@ -861,7 +861,7 @@ grades.map do |grade|
 end
 ```
 
-```javascript
+```ts
 // JavaScript
 grades.map(grade => {
   switch(true) {
@@ -903,7 +903,7 @@ JS can do both of these with one method, `.splice`! Splice like `.insert` or `.d
 
 Since `.splice` is destructive (changes the array permanently), in these examples I'll be remaking the array quite a bit. Let's test it out bit by bit:
 
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 
@@ -911,7 +911,7 @@ array.splice(2)
 array //=> ["Hello", "World"]
 ```
 If we just put in one value (the index), it will delete all elements starting at that index until the end of the array. It works the same as if we put in a second value:
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 
@@ -919,7 +919,7 @@ array.splice(2, 100)
 array //=> ["Hello", "World"]
 ```
 In this case we're deleting all elements starting at index 2 and going 100 elements out, which covers the end of the array. Let's try deleting just a few at a time instead:
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 
@@ -937,7 +937,7 @@ array //=> ["Hello", "You?"]
 // start at index 1, then delete 3 elements out (1-3)
 ```
 Anything after these two numbers is **added** to the array, so let's mimic what we did in Ruby:
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 
@@ -967,7 +967,7 @@ array.include?(7) #=> false
 
 JS can do this, but in addition it can even test for inclusion at a specific index!
 
-```javascript
+```ts
 // JavaScript
 array = [1, 2, 3, "hello", "world"]
 array.includes(3) //=> true
@@ -990,7 +990,7 @@ pets.values #=> [3, 2, 1]
 
 Under the hood, these methods are basically going through each element in the hash and pulling out the chosen value and putting them in an array. These shortcuts work a bit different in JS. First off, a **hash in Ruby** is known as an **object in JS**. So we'll have to call `.keys` or `.values` on a blank `Object` class and have it take in the Object pets:
 
-```javascript
+```ts
 // JavaScript
 Object.keys(pets) //=> ["dogs", "cats", "birds"]
 Object.values(pets) //=> [3, 2, 1]
@@ -1020,7 +1020,7 @@ array.slice(2, 3) # select from index 2 and go 3 positions further
 
 JS operates differently however. Obviously we don't have ranges so the middle script is of no use to us, but what happens if we try the other two scripts?
 
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 array.slice(0) //=> ["Hello", "World", "How", "Are", "You?"]
@@ -1036,7 +1036,7 @@ JS says: `start_index (default is 0)`, `end_index (default is array.length)`
 
 Wait a second, `(start_index, end_index)`? that's a range! Specifically it's the three-dotted `(n1...n2)` range where we go **up until** the end index. So with that knowledge:
 
-```javascript
+```ts
 // JavaScript
 array = ["Hello", "World", "How", "Are", "You?"]
 
@@ -1067,7 +1067,7 @@ end
 multiply_squared(2, 3) #=> 2*2 * 3*3 = 4 * 9 = 36
 ```
 
-```javascript
+```ts
 // JavaScript
 function multiply_squared(x, y) { x*x * y*y }
 
@@ -1166,7 +1166,7 @@ multiply_six_squared.call(2, 2) #=> 576
 ```
 We have our object to call on, and can change it any way we want. Why did I take a long time to go through what these do? Because this is one of those times where JavaScript makes things easier than Ruby and it's important to be able to visualize what goes on under the hood. Here's how a callback would work in JavaScript; see if you can see the similarities:
 
-```javascript
+```ts
 // JavaScript
 var say_hello = function() { console.log("Hello") }
 say_hello() //=> "Hello"
@@ -1193,7 +1193,7 @@ say_hello_callback(console.log( hello() )) //=> "Hello"
 
 As you can see, JavaScript handles our "proc" by just naming a function. Let's callback even further:
 
-```javascript
+```ts
 // JavaScript
 var say_hello_to_someone = function(name) { console.log(`Hello ${name}!`) }
 say_hello_to_someone("Mike") //=> "Hello Mike!"
@@ -1236,7 +1236,7 @@ say_hello_to_someone_input(greeting(), name()) //=> "Hello Mike!"
 ```
 We can even call our function and do things before we callback:
 
-```javascript
+```ts
 // JavaScript
 var lastly_say_hello_callback = callback => {
   console.log("Loading greeting...")
@@ -1249,7 +1249,7 @@ lastly_say_hello_callback(console.log("Hello"))
 
 Oops our greeting callback loaded before our loading message because this is asynchronous. Let's add a `timeout` to our callback:
 
-```javascript
+```ts
 // JavaScript
 var lastly_say_hello_callback = callback => {
   console.log("Loading greeting...")
@@ -1263,7 +1263,7 @@ lastly_say_hello_callback(()=>console.log("Hello"))
 
 And to be really cheeky, let's have some callbacks that also take in inputs:
 
-```javascript
+```ts
 // JavaScript
 function log(greeting, name) { console.log(`${greeting} ${name}!`) }
 function say_hello_to_someone_callback_inputs(callback) { callback(arguments[1], arguments[2]) }

@@ -3,6 +3,7 @@ layout: post
 title: "Type Setting When Destructuring"
 date: 2024-02-02 21:01:37 -0400
 tags: TypeScript
+series: Mastering Types
 summary: Resolve TS errors even when breaking down objects
 ---
 Usually we have TypeScript types available in our code, but if we're manipulating data from outside sources (like fetched data or generating it) we can't always do that. Fortunately TS makes it easy to set types on the fly even when destructuring.

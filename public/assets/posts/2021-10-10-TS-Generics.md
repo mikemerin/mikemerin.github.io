@@ -3,6 +3,7 @@ layout: post
 title: "A Quick Introduction to Generics"
 date: 2021-10-10 13:10:34 -0400
 tags: TypeScript
+series: Mastering Types
 summary: What they look like and how to use them
 ---
 

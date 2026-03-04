@@ -12,8 +12,7 @@ import './post.css';
 
 const Post = (): JSX.Element => {
   const [searchParams] = useSearchParams();
-  const { info, segments: { series } } = useSelector(selectors.getPosts);
-  // TODO: add tags from here
+  const { info, segments: { series, tags } } = useSelector(selectors.getPosts);
   const postId = searchParams.get('post');
 
   const postInfo = info[postId || ''];
@@ -63,7 +62,14 @@ const Post = (): JSX.Element => {
         <h5 className='headerSectionStart'>Created {formatDate(postInfo.date)}</h5>
       </Segment>
       <div color='blue' className='headerInfo seriesSection'>
-        <h5>Tags: {postInfo.tags}</h5>
+        <h5>
+          Tags: {postInfo.tags.split(', ').map((tag, index) => (
+            <span key={`tag${index}`}>
+              {index > 0 && ', '}
+              <Link to={`/blog?tab=tags&tag=${tag}`}>{tag}</Link>
+            </span>
+          ))}
+        </h5>
       </div>
       {seriesInfo()}
       <Segment color='blue' className='postContainer'>
@@ -78,7 +84,17 @@ const Post = (): JSX.Element => {
                 <SyntaxHighlighter
                   PreTag="div"
                   language={match[1]}
+                  showLineNumbers={true}
+                  wrapLines={true}
                   children={String(children).replace(/\n$/, '')}
+                  customStyle={{
+                    margin: '1rem 0',
+                    borderRadius: '4px',
+                    fontSize: '0.95em',
+                    lineHeight: '1.6',
+                    backgroundColor: '#f5f5f5',
+                    padding: '1.5rem',
+                  }}
                   {...props}
                 />
               ) : (

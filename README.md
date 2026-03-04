@@ -1,4 +1,4 @@
 # mikemerin.github.io
 Learning Code with Mike Merin - Blogs and Projects
 
-Last updated Feb 2024
+Last updated Mar 2026

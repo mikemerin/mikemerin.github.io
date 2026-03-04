@@ -148,7 +148,7 @@ Right now we have this massive amount of data to use, but we'll just focus on th
 
 In our app we hit our DailiesAdapter first which does:
 
-```javascript
+```ts
 entry_adjacent(wban, date) {
     return fetch(`${dailies_URL}/${wban}/${date}/adjacent`)
       .then( res => res.json() )
@@ -159,34 +159,34 @@ This hits our API and JSON stringifies our data. We then can take our data (agai
 
 Most of my data is parsed as strings. While as humans we can read `"50"` as the number `50`, ChartJS interprets it as `NaN` which of course means it will show as missing data. To fix this, `tmax` and `tmin` are straightforward:
 
-```javascript
+```ts
 const tmax = parseFloat(data[0].tmax)
 const tmin = parseFloat(data[0].tmin)
 ```
 
 Next, while the `tmax` and `tmin` in our data is usually present, the `tavg` is not and again, we don't want missing data. We can simply spoof it to be the average of the day's high and low which while isn't accurate, will at least give us a connected graph. So I'll just add an if statement that says "if `tavg` is `'M'` or for the pre/post values aren't numbers then fix it up.
 
-```javascript
+```ts
 if (isNaN(pre1_tavg)) { pre1_tavg = (pre1_tmax + pre1_tmin) / 2 }
 if (tavg === "M") { tavg = (tmax + tmin) / 2 }
 ```
 
 We'll also take a second to modify the `year_month_day` to only have the month/day to keep the labels clean and be easier to read. Our current `year_month_day` for example looks like `20160123`, however we only need the month and day since the year will be shown elsewhere. First we'll use `slice` to get our MM which in this case is `01` and then use `parseInt` to convert it to an integer to not only remove the leading 0, but something else I'll talk about shortly. We'll also use slice to get the day from DD.
 
-```javascript
+```ts
 const month_day = `${parseInt(pre5_year_month_day.slice(4,6), 10)} ${parseInt(pre5_year_month_day.slice(6,8), 10)}`
 ```
 
 Onto that second reason I was talking about for the months: I want not just a month's number but to also the name of the month. I made an array called `DateParser`:
 
-```javascript
+```ts
 const DateParser = [ 'Months', 'January', 'February', 'March', 'April', 'May',
   'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 ```
 
 Since DateParser is an array, we can do `DateParser[1]` to hit January. That **1** comes from our parseInt we used before. I made index 0 'Months' which would let the month number of 1 hit 'January', 2 hit 'February', etc. With DateParser there let's hit it by doing the following:
 
-```javascript
+```ts
 //before
 const month_day = `${parseInt(pre5_year_month_day.slice(4,6), 10)} ${parseInt(pre5_year_month_day.slice(6,8), 10)}`
 // adding DateParser
@@ -197,7 +197,7 @@ const pre5_month_day = `${DateParser[parseInt(pre5_year_month_day.slice(4,6), 10
 
 Putting this all together into our React app we get the following:
 
-```javascript
+```ts
 import React from 'react'
 
 export const Graph = (props) => {
@@ -250,7 +250,7 @@ export const Graph = (props) => {
 
 Now's the easy part: putting in our graph. ChartJS makes it easy to separate out the labels, how we can customize our data, and actually put in our data. I'll just throw up what my code looks like and explain things as I go along:
 
-```javascript
+```ts
 // I can do line here, but Bar also allows you to mix together bar and line.
 import { Bar } from 'react-chartjs-2'
 
@@ -362,7 +362,7 @@ const data_temps = {
 
 With all that said and done I can just simply call it in my return:
 
-```javascript
+```ts
 return (
       <div>
         <h2>Weekly Information</h2>

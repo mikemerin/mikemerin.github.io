@@ -6,6 +6,7 @@ import { actions } from '../../redux/actions';
 import { selectors } from '../../redux/selectors';
 
 import LinkButtons from './LinkButtons';
+import { SearchBar } from '../SearchBar';
 
 const Navbar = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ const Navbar = (): JSX.Element => {
       <Menu className='Navbar' color='blue' fluid widths={3} inverted pointing fixed='top'>
         <Menu.Item name='pages'>
           {generatePageButtons()}
+        </Menu.Item>
+        <Menu.Item name='search' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <SearchBar />
         </Menu.Item>
         <LinkButtons />
       </Menu>

@@ -69,7 +69,7 @@ my_dog.info #=> Lily, the 9 year old Pitbull.
 ### JavaScript
 ---
 
-```javascript
+```ts
 
 class Dog {
 
@@ -250,7 +250,7 @@ def initialize(name, breed, age)
 end
 ```
 
-```javascript
+```ts
 // Javascript
 
 constructor(name, breed, age) {
@@ -300,7 +300,7 @@ def greet(message)
 end
 ```
 
-```javascript
+```ts
 // Javascript
 
 birthday() {
@@ -347,7 +347,7 @@ my_dog = Dog.new("Lily", "Pit Mix", 8)
 puts my_dog #=> #<Dog:0x007f8c3d05d630>
 ```
 
-```javascript
+```ts
 // Javascript
 
 my_dog = new Dog("Lily", "Pit Mix", 8)

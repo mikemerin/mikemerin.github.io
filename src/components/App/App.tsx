@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-import { Blog, Home, Projects } from '../../containers';
+import { Blog, Home, Projects, Experience, Other } from '../../containers';
 import { actions } from '../../redux/actions';
 import { getPosts } from '../../utils';
 import { Navbar } from '../Navbar';
@@ -33,6 +33,8 @@ const App = (): JSX.Element => {
           <Route index element={<Home />} />
           <Route path='blog/*' element={<Blog />} />
           <Route path='projects/*' element={<Projects />} />
+          <Route path='experience' element={<Experience />} />
+          <Route path='other' element={<Other />} />
         </Routes>
       </div>
       : <div>Fetching blog posts...</div>

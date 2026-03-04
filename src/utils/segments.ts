@@ -2,9 +2,27 @@ import { Domain } from '../domain';
 
 const sectionPrimaryInfo: Domain.SectionPrimaryInfo = {
     [Domain.Enums.Page.BLOG]: {
-        [Domain.Enums.BlogPageKey.main]: {},
-        [Domain.Enums.BlogPageKey.all]: {},
-        [Domain.Enums.BlogPageKey.quickTips]: {},
+        [Domain.Enums.BlogPageKey.main]: {
+            titles: {
+                'All Posts': {
+                    summary: 'Browse all blog posts'
+                }
+            }
+        },
+        [Domain.Enums.BlogPageKey.all]: {
+            titles: {
+                'All Posts': {
+                    summary: 'Browse all blog posts'
+                }
+            }
+        },
+        [Domain.Enums.BlogPageKey.quickTips]: {
+            titles: {
+                'Quick Tips': {
+                    summary: 'Quick, practical tips and tricks'
+                }
+            }
+        },
         [Domain.Enums.BlogPageKey.series]: {
             titles: {
                 'Cryptography Code Along': {
@@ -23,7 +41,7 @@ const sectionPrimaryInfo: Domain.SectionPrimaryInfo = {
         },
         [Domain.Enums.BlogPageKey.tags]: {
             groups: {
-                'Programming Languages': ['JavaScript', 'PHP', 'Python', 'Regex', 'Ruby', 'Rust', 'SQL', 'Swift', 'TypeScript'],
+                'Programming Languages': ['JavaScript', 'PHP', 'Python', 'Regex', 'Ruby', 'Rust', 'SQL', 'TypeScript'],
                 'Libraries': ['ActiveRecord', 'ChartJS', 'React', 'Redux', 'Rails'],
                 'Command Line Scripting': ['Bash', 'Git', 'NPM'],
             },
@@ -40,9 +58,6 @@ const sectionPrimaryInfo: Domain.SectionPrimaryInfo = {
                 'Regex': {
                     common: ['RegExp', 'Regular Expressions']
                 },
-                // 'Swift': {
-                //     common: ['iOS']
-                // },
             }
         },
     },

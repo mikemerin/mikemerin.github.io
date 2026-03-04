@@ -1,11 +1,17 @@
 table {
     border-spacing: 1px;
     margin: auto;
+    border-collapse: collapse;
 }
 
 tr {
     background: #fff;
     border-top: 1px solid #c6cbd1;
+    transition: background-color 0.2s ease;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
 }
 
 th,
@@ -18,15 +24,59 @@ table tr:nth-child(2n) {
     background: #f6f8fa;
 }
 
+table tr:nth-child(2n):hover {
+    background: #e8f4f8;
+}
+
+/* Syntax Highlighter Styling */
 pre {
     border: 1px dashed rgba(20, 20, 255, 0.4);
     margin-left: 5rem;
     margin-right: 5rem;
     text-align: left;
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    animation: slideInLeft 0.5s ease-out;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}
+
+/* Style for react-syntax-highlighter line numbers */
+pre .hljs-ln-numbers {
+    color: #999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-right: 1rem;
+    border-right: 1px solid #ddd;
+    margin-right: 1rem;
+    text-align: right;
+}
+
+/* Ensure code spans inside pre blocks have proper colors */
+pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+/* Enhanced syntax highlighting appearance */
+pre span {
+    font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+}
+
+code {
+    background-color: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
 }
 
 .headerSectionStart {
     margin-top: 1.5rem;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .seriesSection,
@@ -36,6 +86,7 @@ pre {
     margin-right: auto !important;
     /* needed to overwrite semantic-ui segment */
     width: fit-content;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .seriesParts p {
@@ -48,6 +99,45 @@ pre {
     margin-right: auto !important;
     /* needed to overwrite semantic-ui segment */
     max-width: 60rem;
+    animation: fadeInUp 0.7s ease-out;
+    line-height: 1.6;
+}
+
+.postContainer h2,
+.postContainer h3,
+.postContainer h4,
+.postContainer h5,
+.postContainer h6 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.postContainer a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.postContainer a:hover {
+    text-decoration: underline;
+}
+
+.postContainer blockquote {
+    border-left: 4px solid #0066cc;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: #555;
+}
+
+.postContainer ul,
+.postContainer ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.postContainer li {
+    margin: 0.5rem 0;
 }
 
 .cards {
@@ -56,8 +146,37 @@ pre {
 
 .card {
     width: 20rem;
+    animation: fadeInUp 0.6s ease-out;
 }
 
 .linkImage {
     width: 1.8rem;
+    transition: transform 0.2s ease;
+}
+
+.linkImage:hover {
+    transform: scale(1.1);
+}
+
+/* Animations (reused from main CSS) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

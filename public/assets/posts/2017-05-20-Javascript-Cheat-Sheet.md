@@ -6,7 +6,7 @@ tags: JavaScript
 series: Cheat Sheets
 summary: One-stop-shop for JS functions methods and more
 ---
-This is an abbreviated cheat sheet for JavaScript. If you want an detailed explanation of how everything you see here works including explanations through the eyes of Ruby you can find that [here](/blog?post=2017-05-20-JS-through-Ruby), which I highly recommend.
+This is an abbreviated cheat sheet for JavaScript. If you want an detailed explanation of how everything you see here works including explanations through the eyes of Ruby you can find that [here](/#/blog?post=2017-05-20-JS-through-Ruby), which I highly recommend.
 
 | | | | |
 | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ This is an abbreviated cheat sheet for JavaScript. If you want an detailed expla
 | Object.keys() | Object.values() | .slice |
 
 ### Type Conversions
-```javascript
+```ts
 var num = 5
 num.toString() //=> "5"
 
@@ -32,7 +32,7 @@ parseFloat("10.5") //=> 10.5
 
 ### ES6 Notation, Arrow Functions, and Implicit Returns
 Shorten/clean up your functions. These all do the same thing:
-```javascript
+```ts
 function(x) { console.log(x) }
 (x) => { console.log(x) }
 x => { console.log(x) }
@@ -41,7 +41,7 @@ function(x,i) { console.log(`Element ${x} Index ${i}`) }
 (x,i) => { console.log(`Element ${x} Index ${i}`) }
 ```
 These all do the same thing as well (implicit returns)
-```javascript
+```ts
 function(x) { return x * 2 }
 (x) => { return x * 2 }
 x => { return x * 2 }
@@ -53,7 +53,7 @@ x => x * 2     // same here
 ### Callbacks
 Lets you call functions inside of functions
 
-```javascript
+```ts
 // Javascript
 var say_hello = function(callback) { callback }
 var say_hello = callback => { callback } // ES6 notation
@@ -82,7 +82,7 @@ lastly_say_hello_callback(()=>console.log("Hello"))
 ### while
 Perform a piece of code while a loop is active.
 
-```javascript
+```ts
 while (condition) { code block }
 
 x = 3
@@ -97,7 +97,7 @@ array //=> [1,2,3,4,5]
 ### for / for..in
 Iterate over an array (or string) and perform code on each element
 
-```javascript
+```ts
 for ( initialization; condition (optional); expression ) { code block }
 for ( variable in object) { code block }
 
@@ -116,7 +116,7 @@ for (let i in array) { array2.push( array[i] ) }
 ### .forEach
 Iterate over an array (or string) and perform code on each element
 
-```javascript
+```ts
 array.forEach( function(callback) { code block } )
 
 array = [1,2,3,4,5]
@@ -129,7 +129,7 @@ array.forEach( (x, i) => console.log(`The index is ${i}, the element is ${x}`) )
 ### .map
 iterates over each element, but also changes the output
 
-```javascript
+```ts
 array.map( function(callback) { code block } )
 
 array = [1,2,3,4,5]
@@ -142,7 +142,7 @@ array.map((x, i) => x * i) //=> [0,2,6,12,20]
 ### .reduce
 Reduce each element in the array to a single value
 
-```javascript
+```ts
 array.reduce(callback, default value (optional) )
 
 array = [1,2,3,4,5]
@@ -166,7 +166,7 @@ array.reduce(multi, 2) //=> 240
 ### Spread operator
 Spreads out an array to call on all individual elements
 
-```javascript
+```ts
 a1 = [1,2,3]
 a2 = [4,5,6]
 
@@ -178,7 +178,7 @@ a2 = [4,5,6]
 ### .concat
 Turn one (or more) multi-dimensional array(s) into a single-dimensional array  
 
-```javascript
+```ts
 [].concat(*values_or_arrays)
 
 array = [1, 2, [[3, 4], 5], [6, 7], 8, 9]
@@ -191,7 +191,7 @@ array = [1, 2, [[3, 4], 5], [6, 7], 8, 9]
 ### Filter
 Filter the values you want to keep
 
-```javascript
+```ts
 array.filter(callback)
 
 [1, 2, 3, null, 4, 5].filter(x => x) //=> [1, 2, 3, 4, 5]
@@ -203,7 +203,7 @@ array.filter(callback)
 ### Sort
 Sort an array, Object, or combination of them
 
-```javascript
+```ts
 var array_string = ["hey", "everyone", "how's", "it", "going?"]
 array_string.sort() //=> [ "everyone", "going?", "hey", "how's", "it" ]
 
@@ -244,7 +244,7 @@ Object.keys(object).sort( (a,b) => object[a] - object[b] ).map(x => `${x}: ${has
 ### Switch; case
 Simplifying multiple `if/else if/else` statements
 
-```javascript
+```ts
 switch(value_or_expression) {
   case x: code_block
   case y: code_block
@@ -298,7 +298,7 @@ grades.map(grade => {
 ### .splice
 Add or remove elements from an array/string
 
-```javascript
+```ts
 array.splice(index, how_many_positions_out_to_delete, add_element(s) )
 
 array = ["Hello", "World", "How", "Are", "You?"]
@@ -321,7 +321,7 @@ array.splice(1, 0, "Everyone", "In", "The")
 ### .includes
 Test if a something is included in an array
 
-```javascript
+```ts
 array.includes(element, index)
 
 array = [1, 2, 3, "hello", "world"]
@@ -336,7 +336,7 @@ array.includes(1, 3) //=> false
 ### Object.keys() / Object.values()
 Get all keys or values in a hash
 
-```javascript
+```ts
 Object.keys(pets) //=> ["dogs", "cats", "birds"]
 Object.values(pets) //=> [3, 2, 1]
 
@@ -345,7 +345,7 @@ Object.values(pets) //=> [3, 2, 1]
 Select element(s) from an array, from a start_index up until an end_index
 The start_index's default is 0, the end_index's default is the end of the array
 
-```javascript
+```ts
 array.slice(start_index, end_index)
 
 array = ["Hello", "World", "How", "Are", "You?"]

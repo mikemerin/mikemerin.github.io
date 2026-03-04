@@ -33,7 +33,7 @@ So I decided to try and add them to the language! After finding the [ecma262 git
 
 For my first draft I copied the existing "filter" code, which is as follows
 
-```js
+```ts
 if (!Array.prototype.filter){
     Array.prototype.filter = function(func, thisArg) {
         'use strict';
@@ -75,7 +75,7 @@ if (!Array.prototype.filter){
 ```
 Now first off, the original code seemed like it could be cut down as it had some repeated code in it:
 
-```js
+```ts
 if (!Array.prototype.partition){
     Array.prototype.filters = function(func, thisArg) {
         'use strict';
@@ -108,7 +108,7 @@ if (!Array.prototype.partition){
 
 With that changed I was ready to work on the new method! In my first runthrough, I modified the code to see if it could  also return the false values just like Ruby
 
-```js
+```ts
 if (!Array.prototype.partition){
     Array.prototype.partition = function(func, thisArg) {
         'use strict';
@@ -159,7 +159,7 @@ arr.partition(function(x) { return x % 2 === this.odd }, myObject); // [[1, 3, 5
 
 Now this obviously wasn't the cleanest code, so on my second runthrough I did the following
 
-```js
+```ts
 if (!Array.prototype.partition){
     Array.prototype.partition = function(func, thisArg) {
         'use strict';

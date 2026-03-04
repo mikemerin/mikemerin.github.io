@@ -4,6 +4,8 @@ export namespace Domain {
       HOME = 'Home',
       BLOG = 'Blog',
       PROJECTS = 'Projects',
+      EXPERIENCE = 'Experience',
+      OTHER = 'Other',
     }
 
     export enum PostKey {
@@ -67,22 +69,18 @@ export namespace Domain {
     [Enums.Page.HOME]: { text: 'Home', url: '/' },
     [Enums.Page.BLOG]: { text: 'Blog Posts', url: '/blog' },
     [Enums.Page.PROJECTS]: { text: 'Projects', url: '/projects' },
+    [Enums.Page.EXPERIENCE]: { text: 'Experience', url: '/experience' },
+    [Enums.Page.OTHER]: { text: 'Other', url: '/other' },
   } as const;
 
   export type Page = typeof pages[keyof typeof pages];
 
   export const blogPages = {
-    [Domain.Enums.BlogPageKey.all]: { text: 'All', searchParam: '' },
-    // [Domain.Enums.BlogPageKey.main]: { text: 'Main', searchParam: 'Main' },
-    // [Domain.Enums.BlogPageKey.quickTips]: { text: 'Quick Tips', searchParam: 'quick-tips' },
+    [Domain.Enums.BlogPageKey.main]: { text: 'Main', searchParam: 'main' },
+    [Domain.Enums.BlogPageKey.quickTips]: { text: 'Quick Tips', searchParam: 'quick-tips' },
     [Domain.Enums.BlogPageKey.series]: { text: 'Series', searchParam: 'series' },
     [Domain.Enums.BlogPageKey.tags]: { text: 'Tags', searchParam: 'tags' },
-    // TODO: switch to this after enabling
-    // [Domain.Enums.BlogPageKey.main]: { text: 'Main', searchParam: '' },
-    // [Domain.Enums.BlogPageKey.quickTips]: { text: 'Quick Tips', searchParam: 'quick-tips' },
-    // [Domain.Enums.BlogPageKey.series]: { text: 'Series', searchParam: 'series' },
-    // [Domain.Enums.BlogPageKey.tags]: { text: 'Tags', searchParam: 'tags' },
-    // [Domain.Enums.BlogPageKey.all]: { text: 'All', searchParam: 'all' },
+    [Domain.Enums.BlogPageKey.all]: { text: 'All', searchParam: 'all' },
   } as const;
 
   export type BlogPage = typeof blogPages[keyof typeof blogPages];
@@ -91,18 +89,16 @@ export namespace Domain {
     pages.Home,
     pages.Blog,
     pages.Projects,
+    pages.Experience,
+    pages.Other,
   ];
 
   export const blogPageList: BlogPage[] = [
-    blogPages.all,
+    blogPages.main,
     blogPages.series,
     blogPages.tags,
-    // TODO: switch to this after enabling
-    // blogPages.main,
-    // blogPages.series,
-    // blogPages.tags,
-    // blogPages.quickTips,
-    // blogPages.all,
+    blogPages.quickTips,
+    blogPages.all,
   ];
 
   export type Post = {

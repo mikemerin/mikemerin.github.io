@@ -6,7 +6,7 @@ tags: Python
 series: Cheat Sheets
 summary: One-stop-shop for Python functions methods and more
 ---
-This is an abbreviated cheat sheet for Python. If you want an detailed explanation of how everything you see here works including explanations through the eyes of Ruby you can find that [here](/blog?post=2017-08-25-Python-through-Ruby), which I highly recommend.
+This is an abbreviated cheat sheet for Python. If you want an detailed explanation of how everything you see here works including explanations through the eyes of Ruby you can find that [here](/#/blog?post=2017-08-25-Python-through-Ruby), which I highly recommend.
 
 interpolation | structure | type conversions
 len | ranges | pop | append

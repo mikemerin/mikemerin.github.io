@@ -131,3 +131,16 @@
 .clickable {
   cursor: pointer;
 }
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.padding-medium {
+  padding: 1.5rem !important;
+}
+
+.faded {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-radius: 5px !important;
+}
